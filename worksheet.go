@@ -25,6 +25,14 @@ type WorkSheet struct {
 	parsed bool
 }
 
+//RowHasData will check if the row contains any data
+func (w *WorkSheet) RowHasData(i int) bool {
+	if _, exist := w.rows[uint16(i)]; exist {
+		return true
+	}
+	return false
+}
+
 func (w *WorkSheet) Row(i int) *Row {
 	row := w.rows[uint16(i)]
 	if row != nil {
